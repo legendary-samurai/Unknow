@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div>
+        <p>برای انتخاب محاصبه مورد نظرتان , روی یکی از دکمه های زیر کلیک کنید به طور پیش فرض روی همه موارد هست</p>
+    </div>
+    <header class="header-container">
+        <button data-type="ALL" class="active btn">همه باهم</button>
+        <button data-type="NAME" class="btn">ارتعاش اسم</button>
+        <button data-type="FINANCE" class="btn">ارتعاش مالی</button>
+        <button data-type="ENERGY" class="btn">پاقدم</button>
+    </header>
+    <main class="main-container">
+        <form id="form" action="#">
+            <input id="your-name" type="text" placeholder="نام خود" required>
+            <input id="mother-name" type="text" placeholder="نام مادر" required>
+            <input id="father-name" type="text" placeholder="نام پدر" required>
+            <button type="submit" id="calc">محاسبه کن</button>
+        </form>
+
+        <div class="result-place">
+            <h2 id="NAME"></h2>
+            <h2 id="FINANCE"></h2>
+            <h2 id="ENERGY"></h2>
+        </div>
+    </main>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
