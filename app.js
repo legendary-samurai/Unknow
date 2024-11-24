@@ -173,11 +173,10 @@ const formTypes = (type) => {
       break;
     }
     case "NAME": {
-      console.log(formState);
-      userName = userNameInput.value.trim().filter(letter => letter !== " ");
-      userMotherName = userMotherNameInput.value.trim().filter(letter => letter !== " ");
-      let userNameSeparated = userName.split("");
-      let userMotherNameSeparated = userMotherName.split("");
+      userName = userNameInput.value.trim();
+      userMotherName = userMotherNameInput.value.trim();
+      let userNameSeparated = userName.split("").filter(letter => letter !== " ");
+      let userMotherNameSeparated = userMotherName.split("").filter(letter => letter !== " ");
       let userNameAbjad = abjadCalculator(userNameSeparated);
       let userMotherNameAbjad = abjadCalculator(userMotherNameSeparated);
 
@@ -191,10 +190,10 @@ const formTypes = (type) => {
       break;
     }
     case "FINANCE": {
-      userName = userNameInput.value.trim().filter(letter => letter !== " ");
-      userMotherName = userMotherNameInput.value.trim().filter(letter => letter !== " ");
-      let userNameSeparated = userName.split("");
-      let userMotherNameSeparated = userMotherName.split("");
+      userName = userNameInput.value.trim();
+      userMotherName = userMotherNameInput.value.trim();
+      let userNameSeparated = userName.split("").filter(letter => letter !== " ");
+      let userMotherNameSeparated = userMotherName.split("").filter(letter => letter !== " ");
       let userNameAbjad = abjadCalculator(userNameSeparated);
       let userMotherNameAbjad = abjadCalculator(userMotherNameSeparated);
 
@@ -208,10 +207,10 @@ const formTypes = (type) => {
       break;
     }
     case "ENERGY": {
-      userName = userNameInput.value.trim().filter(letter => letter !== " ");
-      userFatherName = userFatherNameInput.value.trim().filter(letter => letter !== " ");
-      let userNameSeparated = userName.split("");
-      let userMotherNameSeparated = userFatherName.split("");
+      userName = userNameInput.value.trim();
+      userFatherName = userFatherNameInput.value.trim();
+      let userNameSeparated = userName.split("").filter(letter => letter !== " ");
+      let userMotherNameSeparated = userFatherName.split("").filter(letter => letter !== " ");
       let userNameAbjad = abjadCalculator(userNameSeparated);
       let userMotherNameAbjad = abjadCalculator(userMotherNameSeparated);
 
