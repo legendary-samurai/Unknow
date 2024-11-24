@@ -12,6 +12,7 @@ let userName, userMotherName, userFatherName;
 let formState = "ALL";
 const abjadList = {
   ا: 1,
+  آ: 1,
   ب: 2,
   پ: 2,
   ج: 3,
@@ -112,7 +113,6 @@ const financeCalculator = (yourName, motherName) => {
     return "معمولی";
   } else {
     let typefinance = nameCalc.toString().split(".")[1].slice(0, 2);
-    console.log(typefinance);
     if (Number(typefinance) === 33) {
       return "متضضر";
     }
@@ -124,7 +124,6 @@ const financeCalculator = (yourName, motherName) => {
 // energy calculator
 const energyCalculator = (yourName, fatherName) => {
   let nameCalc = (yourName + fatherName) / 3;
-  console.log(yourName , fatherName , nameCalc);
   if (Number.isInteger(nameCalc)) {
     return "خنثی";
   } else {
@@ -143,9 +142,10 @@ const abjadCalculator = (text) => {
 };
 // calculate all types
 const allTypesFunction = (userName, motherName, fatherName) => {
-  let userNameSeparated = userName.split("");
-  let userMotherNameSeparated = motherName.split("");
-  let userFatherSeparated = fatherName.split("");
+  let userNameSeparated = userName.split("").filter(letter => letter !== " ");
+  let userMotherNameSeparated = motherName.split("").filter(letter => letter !== " ");
+  let userFatherSeparated = fatherName.split("").filter(letter => letter !== " ");
+  console.log(userMotherNameSeparated);
   let userNameAbjad = abjadCalculator(userNameSeparated);
   let userMotherNameAbjad = abjadCalculator(userMotherNameSeparated);
   let userFatherNameAbjad = abjadCalculator(userFatherSeparated);
@@ -161,9 +161,9 @@ const allTypesFunction = (userName, motherName, fatherName) => {
 const formTypes = (type) => {
   switch (type) {
     case "ALL": {
-      userName = userNameInput.value;
-      userMotherName = userMotherNameInput.value;
-      userFatherName = userFatherNameInput.value;
+      userName = userNameInput.value.trim();
+      userMotherName = userMotherNameInput.value.trim();
+      userFatherName = userFatherNameInput.value.trim();
 
       allTypesFunction(userName, userMotherName, userFatherName);
 
@@ -174,8 +174,8 @@ const formTypes = (type) => {
     }
     case "NAME": {
       console.log(formState);
-      userName = userNameInput.value;
-      userMotherName = userMotherNameInput.value;
+      userName = userNameInput.value.trim().filter(letter => letter !== " ");
+      userMotherName = userMotherNameInput.value.trim().filter(letter => letter !== " ");
       let userNameSeparated = userName.split("");
       let userMotherNameSeparated = userMotherName.split("");
       let userNameAbjad = abjadCalculator(userNameSeparated);
@@ -191,8 +191,8 @@ const formTypes = (type) => {
       break;
     }
     case "FINANCE": {
-      userName = userNameInput.value;
-      userMotherName = userMotherNameInput.value;
+      userName = userNameInput.value.trim().filter(letter => letter !== " ");
+      userMotherName = userMotherNameInput.value.trim().filter(letter => letter !== " ");
       let userNameSeparated = userName.split("");
       let userMotherNameSeparated = userMotherName.split("");
       let userNameAbjad = abjadCalculator(userNameSeparated);
@@ -208,9 +208,8 @@ const formTypes = (type) => {
       break;
     }
     case "ENERGY": {
-      console.log(formState);
-      userName = userNameInput.value;
-      userFatherName = userFatherNameInput.value;
+      userName = userNameInput.value.trim().filter(letter => letter !== " ");
+      userFatherName = userFatherNameInput.value.trim().filter(letter => letter !== " ");
       let userNameSeparated = userName.split("");
       let userMotherNameSeparated = userFatherName.split("");
       let userNameAbjad = abjadCalculator(userNameSeparated);
